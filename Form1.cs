@@ -1,16 +1,14 @@
 ﻿using Microsoft.Web.WebView2.WinForms;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SimpleTCP;
 using System.IO;
 using Machine_vision_GUI.utils;
+using LiveCharts.Wpf;
+using LiveCharts;
 
 namespace Machine_vision_GUI
 {
@@ -20,6 +18,9 @@ namespace Machine_vision_GUI
         private WebView2 webView2;
         private bool isConnected = false;
         private bool isRunning = false;
+        private int count_faild = 0;
+        private int count_passed = 0;
+        private int count_total = 0;
 
         public Form1()
         {
@@ -51,8 +52,10 @@ namespace Machine_vision_GUI
             client = new SimpleTcpClient();
             client.StringEncoder = Encoding.UTF8;
             client.DataReceived += Client_DataReceived;
+            InitializePieChart();
 
-            
+
+
 
             if (File.Exists(Constant.img_path_disconnected))
             {
@@ -65,13 +68,35 @@ namespace Machine_vision_GUI
             }
 
             btnConnect.Enabled = false;
-        }
 
+        }
+        private void InitializePieChart()
+        {
+            if (pieChart.Series == null)
+                pieChart.Series = new LiveCharts.SeriesCollection();
+
+            pieChart.Series.Clear();
+            pieChart.Series.Add(new PieSeries
+            {
+                Title = "Failed",
+                Values = new ChartValues<int> { 0 },
+                DataLabels = true
+            });
+            pieChart.Series.Add(new PieSeries
+            {
+                Title = "Passed",
+                Values = new ChartValues<int> { 0 },
+                DataLabels = true
+            });
+
+            pieChart.LegendLocation = LegendLocation.Bottom;
+        }
         private void Client_DataReceived(object sender, SimpleTCP.Message e)
         {
             txtMessage.Invoke((MethodInvoker)delegate ()
             {
                 txtMessage.Text += e.MessageString;
+                count_total++;
 
                 txtTime.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff"); 
 
@@ -85,12 +110,26 @@ namespace Machine_vision_GUI
                 if (e.MessageString.Trim() == "0")
                 {
                     picCheck.Image = Image.FromFile(Constant.img_path_faild);
+                    count_faild ++;
                 }
                 else if (e.MessageString.Trim() == "1")
                 {
                     picCheck.Image = Image.FromFile(Constant.img_path_pass);
+                    count_passed ++;
                 }
+                UpdatePieChart();
+                UpdateTotal();
             });
+        }
+        private void UpdateTotal()
+        {
+            txtTotal.Text= count_total.ToString();
+        }
+        private void UpdatePieChart()
+        {
+            pieChart.Series[0].Values[0] = count_faild;
+            pieChart.Series[1].Values[0] = count_passed;
+            pieChart.Refresh(); // Để đảm bảo biểu đồ được vẽ lại
         }
 
         private void btnConnect_Click(object sender, EventArgs e)
@@ -167,7 +206,20 @@ namespace Machine_vision_GUI
                 btnConnect.Enabled = false;
             }
         }
+         
+        private void chartPie_Click(object sender, EventArgs e)
+        {
 
+        }
 
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
