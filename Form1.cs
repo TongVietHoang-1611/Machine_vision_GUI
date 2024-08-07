@@ -38,21 +38,13 @@ namespace Machine_vision_GUI
             webView2 = new WebView2();
             webView2.Dock = DockStyle.Fill;
 
-/*            txtIP.KeyPress += new KeyPressEventHandler(txtIP_KeyPress);
-            txtIP.Leave += new EventHandler(txtIP_Leave);
-
-            txtPort.KeyPress += new KeyPressEventHandler(txtPort_KeyPress);
-            txtPort.Leave += new EventHandler(txtPort_Leave);*/
-
-
         }
-
-
 
         private async Task initizated()
         {
             await webView2.EnsureCoreWebView2Async(null);
         }
+
         public async void InitBrowser()
         {
             await initizated();
@@ -114,19 +106,17 @@ namespace Machine_vision_GUI
 
         }
 
-
         private void UpdateTotal()
         {
             txtTotal.Text = count_total.ToString(); 
         }
+
         private void UpdatePieChart()
         {
             pieChart.Series[0].Values[0] = count_faild;
             pieChart.Series[1].Values[0] = count_passed;
             pieChart.Refresh(); // Để đảm bảo biểu đồ được vẽ lại
         }
-
-
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
@@ -259,25 +249,7 @@ namespace Machine_vision_GUI
             // Show the SettingsForm as a dialog
             
         }
-/*        private void updateIpPort()
-        {
-            using (var settingsForm = new Machine_vision_GUI.UI.Settings.settings())
-            {
-                // Set initial values if needed
-                settingsForm.ServerIP = txtIP.Text;
-                settingsForm.Port = txtPort.Text;
 
-                if (settingsForm.ShowDialog() == DialogResult.OK)
-                {
-                    // Update the main form's text boxes with values from the settings form
-                    txtIP.Text = settingsForm.ServerIP;
-                    txtPort.Text = settingsForm.Port;
-                }
-            }
-        }*/
-        private void txtIP_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+ 
     }
 }

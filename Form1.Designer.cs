@@ -138,7 +138,6 @@
             this.txtIP.TabIndex = 20;
             this.txtIP.Text = "192.168.0.134";
             this.txtIP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtIP.TextChanged += new System.EventHandler(this.txtIP_TextChanged);
             // 
             // label6
             // 
