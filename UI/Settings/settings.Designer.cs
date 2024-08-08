@@ -48,7 +48,6 @@
             this.txtServerSettings.TabIndex = 0;
             this.txtServerSettings.Text = "192.168.0.134";
             this.txtServerSettings.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-           
             // 
             // txtPortSettings
             // 

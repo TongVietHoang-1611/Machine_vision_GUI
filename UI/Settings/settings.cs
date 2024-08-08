@@ -24,8 +24,6 @@ namespace Machine_vision_GUI.UI.Settings
 
         }
 
-
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -38,6 +36,7 @@ namespace Machine_vision_GUI.UI.Settings
             _form1.txtPort.Text = txtPortSettings.Text;
             this.Close(); // Close the settings form after saving
         }
+
 
 
     }

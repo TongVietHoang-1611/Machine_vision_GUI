@@ -9,13 +9,9 @@ using System.IO;
 using Machine_vision_GUI.utils;
 using LiveCharts.Wpf;
 using LiveCharts;
-using System.Data.SqlClient;
-using System.Data;
-using System.Net;
-using System.Text.RegularExpressions;
 using System.Windows.Media;
-using Machine_vision_GUI.Properties;
 using Machine_vision_GUI.UI.Settings;
+using System.ComponentModel;
 
 namespace Machine_vision_GUI
 {
@@ -37,14 +33,14 @@ namespace Machine_vision_GUI
             InitializeComponent();
             webView2 = new WebView2();
             webView2.Dock = DockStyle.Fill;
-
         }
+
+
 
         private async Task initizated()
         {
             await webView2.EnsureCoreWebView2Async(null);
         }
-
         public async void InitBrowser()
         {
             await initizated();
@@ -64,7 +60,7 @@ namespace Machine_vision_GUI
                 Title = "Failed",
                 Values = new ChartValues<int> { 0 },
                 DataLabels = true,
-                FontSize = 16,
+                FontSize = 12,
                 Fill = new SolidColorBrush(System.Windows.Media.Color.FromRgb(255, 0, 0)) // Red
             });
             pieChart.Series.Add(new PieSeries
@@ -72,7 +68,7 @@ namespace Machine_vision_GUI
                 Title = "Passed",
                 Values = new ChartValues<int> { 0 },
                 DataLabels = true,
-                FontSize = 16,
+                FontSize = 12,
                 Fill = new SolidColorBrush(System.Windows.Media.Color.FromRgb(128, 128, 0)) // Green
             });
 
@@ -106,17 +102,19 @@ namespace Machine_vision_GUI
 
         }
 
+
         private void UpdateTotal()
         {
             txtTotal.Text = count_total.ToString(); 
         }
-
         private void UpdatePieChart()
         {
             pieChart.Series[0].Values[0] = count_faild;
             pieChart.Series[1].Values[0] = count_passed;
             pieChart.Refresh(); // Để đảm bảo biểu đồ được vẽ lại
         }
+
+
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
@@ -213,18 +211,22 @@ namespace Machine_vision_GUI
                 picStatusCognex.Image = Image.FromFile(Constant.img_path_connected);
 
                 string status = e.MessageString.Trim() == "0" ? "failed" : "passed";
-                picCheck.Image = Image.FromFile(e.MessageString.Trim() == "0" ? Constant.img_path_faild : Constant.img_path_pass);
+                
+               
 
                 count_faild += e.MessageString.Trim() == "0" ? 1 : 0;
                 count_passed += e.MessageString.Trim() == "1" ? 1 : 0;
 
                 UpdatePieChart();
+                picCheck.Image = Image.FromFile(e.MessageString.Trim() == "0" ? Constant.img_path_faild : Constant.img_path_pass);
                 UpdateTotal();
                
                 // Lưu dữ liệu vào cơ sở dữ liệu
                 db.AddData( txtNameItem.Text, Convert.ToDateTime(txtTime.Text), status);
                 db.UpdateDataGridView(dataGridView1);
                 FormatDataGridView();
+                dataGridView1.Sort(dataGridView1.Columns[0], ListSortDirection.Ascending);
+                dataGridView1.FirstDisplayedScrollingRowIndex = Math.Max(0, dataGridView1.RowCount - 12);
             });
         }
 
@@ -250,6 +252,6 @@ namespace Machine_vision_GUI
             
         }
 
- 
+
     }
 }

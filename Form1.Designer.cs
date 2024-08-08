@@ -55,6 +55,7 @@
             this.picStatusCognex = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.picCheck = new System.Windows.Forms.PictureBox();
+            this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -63,6 +64,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picStatusCognex)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCheck)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -166,9 +168,9 @@
             // 
             // pieChart
             // 
-            this.pieChart.Location = new System.Drawing.Point(1096, 34);
+            this.pieChart.Location = new System.Drawing.Point(1107, 34);
             this.pieChart.Name = "pieChart";
-            this.pieChart.Size = new System.Drawing.Size(298, 308);
+            this.pieChart.Size = new System.Drawing.Size(255, 292);
             this.pieChart.TabIndex = 26;
             this.pieChart.Text = "pieChart1";
             // 
@@ -176,7 +178,7 @@
             // 
             this.txtTotal.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotal.Location = new System.Drawing.Point(1293, 406);
+            this.txtTotal.Location = new System.Drawing.Point(1293, 375);
             this.txtTotal.Multiline = true;
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.ReadOnly = true;
@@ -235,7 +237,7 @@
             // txtMessage
             // 
             this.txtMessage.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtMessage.Location = new System.Drawing.Point(6, 602);
+            this.txtMessage.Location = new System.Drawing.Point(3, 621);
             this.txtMessage.Name = "txtMessage";
             this.txtMessage.Size = new System.Drawing.Size(159, 108);
             this.txtMessage.TabIndex = 3;
@@ -276,7 +278,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(1107, 406);
+            this.pictureBox2.Location = new System.Drawing.Point(1107, 375);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(188, 39);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -286,9 +288,9 @@
             // picStatusPLC
             // 
             this.picStatusPLC.Image = ((System.Drawing.Image)(resources.GetObject("picStatusPLC.Image")));
-            this.picStatusPLC.Location = new System.Drawing.Point(581, 439);
+            this.picStatusPLC.Location = new System.Drawing.Point(576, 439);
             this.picStatusPLC.Name = "picStatusPLC";
-            this.picStatusPLC.Size = new System.Drawing.Size(147, 39);
+            this.picStatusPLC.Size = new System.Drawing.Size(138, 39);
             this.picStatusPLC.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picStatusPLC.TabIndex = 23;
             this.picStatusPLC.TabStop = false;
@@ -296,9 +298,9 @@
             // picStatusCognex
             // 
             this.picStatusCognex.Image = ((System.Drawing.Image)(resources.GetObject("picStatusCognex.Image")));
-            this.picStatusCognex.Location = new System.Drawing.Point(298, 439);
+            this.picStatusCognex.Location = new System.Drawing.Point(285, 439);
             this.picStatusCognex.Name = "picStatusCognex";
-            this.picStatusCognex.Size = new System.Drawing.Size(150, 39);
+            this.picStatusCognex.Size = new System.Drawing.Size(141, 39);
             this.picStatusCognex.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picStatusCognex.TabIndex = 21;
             this.picStatusCognex.TabStop = false;
@@ -321,6 +323,10 @@
             this.picCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picCheck.TabIndex = 10;
             this.picCheck.TabStop = false;
+            // 
+            // errorProvider2
+            // 
+            this.errorProvider2.ContainerControl = this;
             // 
             // Form1
             // 
@@ -359,6 +365,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picStatusCognex)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCheck)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -390,6 +397,7 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         public System.Windows.Forms.TextBox txtIP;
         public System.Windows.Forms.TextBox txtPort;
+        private System.Windows.Forms.ErrorProvider errorProvider2;
     }
 }
 

@@ -103,6 +103,7 @@
     <Compile Include="UI\test_database_add.Designer.cs">
       <DependentUpon>test_database_add.cs</DependentUpon>
     </Compile>
+    <Compile Include="utils\ConnectDatabase.cs" />
     <Compile Include="utils\ConnectSql.cs" />
     <Compile Include="utils\Constant.cs" />
     <Compile Include="utils\CrudDatabase.cs" />
