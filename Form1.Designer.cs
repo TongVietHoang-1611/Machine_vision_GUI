@@ -56,6 +56,7 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.picCheck = new System.Windows.Forms.PictureBox();
             this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.txtIdFaild = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -118,6 +119,7 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(1203, 234);
             this.dataGridView1.TabIndex = 16;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // label5
             // 
@@ -328,12 +330,21 @@
             // 
             this.errorProvider2.ContainerControl = this;
             // 
+            // txtIdFaild
+            // 
+            this.txtIdFaild.Location = new System.Drawing.Point(1182, 479);
+            this.txtIdFaild.Multiline = true;
+            this.txtIdFaild.Name = "txtIdFaild";
+            this.txtIdFaild.Size = new System.Drawing.Size(113, 25);
+            this.txtIdFaild.TabIndex = 4;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1406, 756);
+            this.Controls.Add(this.txtIdFaild);
             this.Controls.Add(this.txtTime);
             this.Controls.Add(this.txtTotal);
             this.Controls.Add(this.pictureBox2);
@@ -398,6 +409,7 @@
         public System.Windows.Forms.TextBox txtIP;
         public System.Windows.Forms.TextBox txtPort;
         private System.Windows.Forms.ErrorProvider errorProvider2;
+        private System.Windows.Forms.TextBox txtIdFaild;
     }
 }
 

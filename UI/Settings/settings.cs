@@ -37,7 +37,9 @@ namespace Machine_vision_GUI.UI.Settings
             this.Close(); // Close the settings form after saving
         }
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
 
-
+        }
     }
 }

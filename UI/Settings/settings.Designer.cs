@@ -32,16 +32,17 @@
             this.txtPortSettings = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.IP = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtLink = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtServerSettings
             // 
             this.txtServerSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtServerSettings.Location = new System.Drawing.Point(128, 140);
+            this.txtServerSettings.Location = new System.Drawing.Point(128, 57);
             this.txtServerSettings.Multiline = true;
             this.txtServerSettings.Name = "txtServerSettings";
             this.txtServerSettings.Size = new System.Drawing.Size(179, 25);
@@ -52,7 +53,7 @@
             // txtPortSettings
             // 
             this.txtPortSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPortSettings.Location = new System.Drawing.Point(128, 189);
+            this.txtPortSettings.Location = new System.Drawing.Point(128, 106);
             this.txtPortSettings.Multiline = true;
             this.txtPortSettings.Name = "txtPortSettings";
             this.txtPortSettings.Size = new System.Drawing.Size(179, 25);
@@ -62,7 +63,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(128, 321);
+            this.btnSave.Location = new System.Drawing.Point(131, 285);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(110, 29);
             this.btnSave.TabIndex = 3;
@@ -72,7 +73,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(263, 321);
+            this.btnCancel.Location = new System.Drawing.Point(266, 285);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(110, 29);
             this.btnCancel.TabIndex = 4;
@@ -80,21 +81,11 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(38, 90);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 20);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Protocol";
-            // 
             // IP
             // 
             this.IP.AutoSize = true;
             this.IP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.IP.Location = new System.Drawing.Point(50, 145);
+            this.IP.Location = new System.Drawing.Point(50, 62);
             this.IP.Name = "IP";
             this.IP.Size = new System.Drawing.Size(55, 20);
             this.IP.TabIndex = 6;
@@ -104,33 +95,51 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(67, 187);
+            this.label3.Location = new System.Drawing.Point(67, 104);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(38, 20);
             this.label3.TabIndex = 7;
             this.label3.Text = "Port";
             // 
-            // comboBox1
+            // label2
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "TCP/IP",
-            "UDP"});
-            this.comboBox1.Location = new System.Drawing.Point(128, 92);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(179, 28);
-            this.comboBox1.TabIndex = 8;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(11, 191);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(94, 20);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Save Image";
+            // 
+            // txtLink
+            // 
+            this.txtLink.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLink.Location = new System.Drawing.Point(126, 186);
+            this.txtLink.Multiline = true;
+            this.txtLink.Name = "txtLink";
+            this.txtLink.Size = new System.Drawing.Size(179, 25);
+            this.txtLink.TabIndex = 10;
+            this.txtLink.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(311, 188);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Browse";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(402, 381);
-            this.Controls.Add(this.comboBox1);
+            this.ClientSize = new System.Drawing.Size(410, 344);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.txtLink);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.IP);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtPortSettings);
@@ -148,9 +157,10 @@
         private System.Windows.Forms.TextBox txtPortSettings;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label IP;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtLink;
+        private System.Windows.Forms.Button button1;
     }
 }
