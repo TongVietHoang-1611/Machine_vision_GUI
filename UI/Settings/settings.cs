@@ -1,13 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Machine_vision_GUI.UI.Settings
@@ -37,9 +28,6 @@ namespace Machine_vision_GUI.UI.Settings
             this.Close(); // Close the settings form after saving
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
 
-        }
     }
 }

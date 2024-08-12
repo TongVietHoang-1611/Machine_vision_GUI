@@ -12,7 +12,7 @@ using LiveCharts;
 using System.Windows.Media;
 using Machine_vision_GUI.UI.Settings;
 using System.ComponentModel;
-using System.Collections.Generic;
+using Machine_vision_GUI.UI.Image;
 
 namespace Machine_vision_GUI
 {
@@ -38,10 +38,7 @@ namespace Machine_vision_GUI
 
 
 
-        private async Task initizated()
-        {
-            await webView2.EnsureCoreWebView2Async(null);
-        }
+        private async Task initizated() => await webView2.EnsureCoreWebView2Async(null);
         public async void InitBrowser()
         {
             await initizated();
@@ -253,7 +250,7 @@ namespace Machine_vision_GUI
             
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        public void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             // Lấy chỉ số hàng hiện tại
             int rowIndex = dataGridView1.CurrentRow.Index;
@@ -261,37 +258,11 @@ namespace Machine_vision_GUI
             // Lấy giá trị ID và Status của hàng được chọn
             string selectedId = dataGridView1.Rows[rowIndex].Cells[0].Value.ToString();
             string status = dataGridView1.Rows[rowIndex].Cells[3].Value.ToString();
-            txtIdFaild.Text = status;
+            txtIdFaild.Text = selectedId;
+            ImageFaild form = new ImageFaild(this);
+            form.ShowDialog();
 
-            // Kiểm tra nếu Status là "failed"
-            if (status == "failed    ")
-            {
-                // Tạo danh sách để lưu các ID có Status là "failed"
-                List<string> failedIds = new List<string>();
 
-                // Lặp qua tất cả các hàng trong DataGridView
-                foreach (DataGridViewRow row in dataGridView1.Rows)
-                {
-                    if (row.Cells[3].Value != null && row.Cells[3].Value.ToString() == "failed")
-                    {
-                        // Thêm ID vào danh sách nếu Status là "failed"
-                        failedIds.Add(row.Cells[0].Value.ToString());
-                    }
-                }
-
-                // Sắp xếp danh sách ID theo thứ tự tăng dần
-                failedIds.Sort();
-
-                // Xác định vị trí của ID đã chọn trong danh sách đã sắp xếp
-                int position = failedIds.IndexOf(selectedId);
-
-                // Trả về vị trí
-                MessageBox.Show("Vị trí của ID trong danh sách failed: " + position.ToString());
-            }
-            else
-            {
-                MessageBox.Show("Status của ID được chọn không phải là 'failed'.");
-            }
         }
 
 

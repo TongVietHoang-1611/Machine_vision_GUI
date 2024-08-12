@@ -387,7 +387,7 @@
         private System.Windows.Forms.TextBox txtNameItem;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox picCheck;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        public System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox picStatusPLC;

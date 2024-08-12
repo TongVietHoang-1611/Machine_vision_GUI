@@ -12,7 +12,7 @@ namespace Machine_vision_GUI.utils
         private string str = @"Data Source=DESKTOP-GRDVNF6\SQLEXPRESS;Initial Catalog=SQLITEM;Integrated Security=True";
         private SqlDataAdapter adapter = new SqlDataAdapter();
         private DataTable dt = null;
-        private object dateTime;
+/*        private object dateTime;*/
 
         public ConnectSql()
         {
@@ -82,7 +82,38 @@ namespace Machine_vision_GUI.utils
 
                 connection.Close();
             }
+
         }
+
+
+        public void UpdateFaildDb(int idReal)
+        {
+            using (SqlConnection connection = new SqlConnection(str))
+            {
+                connection.Open();
+
+                // Lấy ID lớn nhất hiện tại từ FaildDb
+                string getMaxFaildIdQuery = "SELECT ISNULL(MAX(ID), 0) + 1 FROM FaildDb";
+                using (SqlCommand getMaxFaildIdCommand = new SqlCommand(getMaxFaildIdQuery, connection))
+                {
+                    int faildId = (int)getMaxFaildIdCommand.ExecuteScalar();
+
+                    // Chèn bản ghi mới vào FaildDb
+                    string insertFaildQuery = "INSERT INTO FaildDb (ID, IdReal) VALUES (@ID, @IdReal)";
+                    using (SqlCommand insertFaildCommand = new SqlCommand(insertFaildQuery, connection))
+                    {
+                        insertFaildCommand.Parameters.AddWithValue("@ID", faildId);
+                        insertFaildCommand.Parameters.AddWithValue("@IdReal", idReal);
+
+                        insertFaildCommand.ExecuteNonQuery();
+                    }
+                }
+
+                connection.Close();
+            }
+        }
+
+
         public void UpdateDataGridView(DataGridView dataGridView)
         {
             DataTable dt = LoadData();
